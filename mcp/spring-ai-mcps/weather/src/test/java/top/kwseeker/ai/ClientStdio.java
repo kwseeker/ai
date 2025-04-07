@@ -35,10 +35,11 @@ import java.util.Map;
 public class ClientStdio {
 
 	public static void main(String[] args) {
-
+		// idea 通过链接其他项目打开多个项目，当前工作目录是打开的第一个项目，这里使用相对路径会找不到文件
+		// 应该用绝对路径
 		var stdioParams = ServerParameters.builder("java")
 			.args("-jar",
-					"weather/target/mcp-weather-1.0-SNAPSHOT.jar")
+					"/home/arvin/mywork/ai/ai/mcp/spring-ai-mcps/weather/target/mcp-weather-1.0-SNAPSHOT.jar")
 			.build();
 
 		var transport = new StdioClientTransport(stdioParams);
